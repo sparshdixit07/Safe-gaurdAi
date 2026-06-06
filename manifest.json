@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "SafeWeb Guard",
+  "version": "1.0",
+  "description": "Detect risky websites before opening them.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+     "https://www.virustotal.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "SafeWeb Guard"
+  },
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "content_scripts": [
+  {
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }
+]
+}
